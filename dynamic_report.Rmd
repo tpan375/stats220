@@ -18,6 +18,7 @@ In my code and bar charts we can see that the summary values showed a minimum of
 
 The summary values of how many people wearing red were in groups of at least 2 showed that the minimum observed was 0 while the maximum was 7. The mean was fairly low with a value of 2.5 which shows that there was usually half of the observed people wearing red were in groups of at least 2.
 
+In the first bar chart the most commonly observed piece of clothing that was red was t-shirts. With the lowest being accessories, pants/skirts and shoes.
 ```{r, eval=FALSE}
 #Summary Values
 minimum <- min(logged_data$num_people_red, na.rm = TRUE) #Minimum value
