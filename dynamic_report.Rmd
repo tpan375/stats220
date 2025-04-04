@@ -1,0 +1,72 @@
+---
+title: My dynamic report
+output: html_fragment
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo=FALSE, message=FALSE, warning=FALSE, error=FALSE)
+
+```
+
+```{css}
+h2 {
+  font-family: "Arial Black", Arial, sans-serif;
+  font-size: 28px;
+  text-align: center;
+}
+
+p {
+  font-family: "Trebuchet MS", Arial, sans-serif;
+  }
+  
+img {
+  text-align: center;
+}
+```
+
+## Spotting Red: People, Clothing, and Groups
+
+In my code and bar charts we can see that the summary values showed a minimum of 1 person wearing red in the past 10 minutes while the maximum was 12. The mean amount of people seen wearing red was observed to be 4.85. 
+
+The summary values of how many people wearing red were in groups of at least 2 showed that the minimum observed was 0 while the maximum was 7. The mean was fairly low with a value of 2.5 which shows that there was usually half of the observed people wearing red were in groups of at least 2.
+
+In the first bar chart the most commonly observed piece of clothing that was red was t-shirts. With the lowest being accessories, pants/skirts and shoes.
+
+![First Bar Chart](Types of red clothing observed.png)
+![Second Bar Chart](red group bar chart.png)
+
+
+```{r, eval=FALSE}
+#Summary Values
+minimum <- min(logged_data$num_people_red, na.rm = TRUE) #Minimum value
+maximum <- max(logged_data$num_people_red, na.rm = TRUE)  # Maximum value
+mean_value <- mean(logged_data$num_people_red, na.rm = TRUE)  # Mean value
+number <- length(logged_data$num_people_red)  # Number of observations
+
+cat(paste("Minimum:",minimum, 
+      "\nMaximum:", maximum, 
+      "\nMean:", mean_value, 
+      "\nNumber of observations:", number))
+
+min(logged_data$grouped_red_count, na.rm = TRUE) #Minimum value
+max(logged_data$grouped_red_count, na.rm = TRUE)  # Maximum value
+mean(logged_data$grouped_red_count, na.rm = TRUE)  # Mean value
+length(logged_data$grouped_red_count)  # Number of observations
+
+#Bar Charts
+ggplot(logged_data) +
+  geom_bar(aes(x=red_clothing_types)) +
+  labs(title="Types of red clothing observed",
+       x="Types of red clothing",
+       y="Number")
+
+ggplot(logged_data) +
+  geom_bar(aes(x=num_people_red)) + 
+  labs(title = "How many people seen wearing red were in groups?",
+       subtitle="Comparing the number of people seen wearing red and how often they were in a group setting",
+       x = "Number of people wearing red (past 10 minutes)",
+       y = "Number of people in group setting wearing red")
+
+
+```
+
