@@ -32,8 +32,8 @@ The summary values of how many people wearing red were in groups of at least 2 s
 
 In the first bar chart the most commonly observed piece of clothing that was red was t-shirts. With the lowest being accessories, pants/skirts and shoes.
 
-![First Bar Chart](Types of red clothing observed.png)
-![Second Bar Chart](red group bar chart.png)
+![First Bar Chart](https://raw.githubusercontent.com/tpan375/stats220/refs/heads/main/Types%20of%20red%20clothing%20observed.png)
+![Second Bar Chart](https://raw.githubusercontent.com/tpan375/stats220/refs/heads/main/red%20group%20bar%20chart.png)
 
 
 ```{r, eval=FALSE}
